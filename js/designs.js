@@ -2,7 +2,7 @@
 
 function makeGrid() {
   $('#submit_button').on('click', function() {
-    const colorValue = $('#colorPicker').val();
+    let colorValue = $('#colorPicker').val();
     const gridWidth = $('#input_width').val(),  gridHeight = $('#input_height').val();
     const targetTable = $('#pixel_canvas');
 
@@ -24,6 +24,7 @@ function makeGrid() {
     }
 
     // click to fill in grid
+
     $('td').on('click', function() {
       if ($(this).css('background-color') == 'rgb(0, 0, 0)')
         <!-- TODO: Enable any color of fill to be toggled on or off as currently only black toggles. -->
@@ -32,6 +33,7 @@ function makeGrid() {
           $(this).css('background-color', '');
         }
       else {
+        colorValue = $("#colorPicker").val();
         $(this).css('background-color', colorValue);
       }
     });
